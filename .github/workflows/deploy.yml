@@ -1,0 +1,30 @@
+name: Deploy to HELIX Hub
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy Package to HELIX
+        uses: hypersonic-laboratories/deploy-package@main
+        with:
+          access_token: ${{ secrets.ACCESS_TOKEN }}
+          package_name: 'helix-project'
+
+  # Uncomment below to also deploy the world
+  # deploy-world:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Deploy World to HELIX
+  #       uses: hypersonic-laboratories/deploy-world@main
+  #       with:
+  #         access_token: ${{ secrets.ACCESS_TOKEN }}
+  #         world_name: 'my-world'
+  #         packages_path: './Packages'
