@@ -1,4 +1,4 @@
--- Shared configuration — loaded on both client and server
+-- Shared config — loaded on both client and server
 Config = {
     ServerName = "Helix Dev Server",
     MaxPlayers = 64,
